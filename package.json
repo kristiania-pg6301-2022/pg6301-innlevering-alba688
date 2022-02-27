@@ -1,0 +1,26 @@
+{
+  "name": "pg6301-innlevering-alba688",
+  "version": "1.0.0",
+  "description": "Innlevering PG6301 Web & Api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristiania-pg6301-2022/pg6301-innlevering-alba688.git"
+  },
+  "keywords": [],
+  "author": "Alexandra Baker & Martin Hansen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kristiania-pg6301-2022/pg6301-innlevering-alba688/issues"
+  },
+  "homepage": "https://github.com/kristiania-pg6301-2022/pg6301-innlevering-alba688#readme",
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "husky": "^7.0.4",
+    "jest": "^27.5.1",
+    "prettier": "^2.5.1"
+  }
+}
