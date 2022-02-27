@@ -1,6 +1,6 @@
 import * as React from "react";
 import ReactDOM from "react-dom";
-import { QuestionPage } from "../index.jsx";
+import { QuestionPage } from "../quizApp";
 
 describe("Quiz Application", () => {
   it("Shows a question", () => {

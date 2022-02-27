@@ -1,32 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { AnswerPage, FrontPage, QuestionPage } from "./quizApp";
 
-function FrontPage() {
-  return (
-    <div>
-      <h1>Quiz Application</h1>
-    </div>
-  );
-}
-
-export function QuestionPage() {
-  return (
-    <div>
-      <h1>Question Page</h1>
-    </div>
-  );
-}
-
-function AnswerPage() {
-  return (
-    <div>
-      <h1>Answer Page</h1>
-    </div>
-  );
-}
-
-export function QuizApplication() {
+export function Application() {
   return (
     <BrowserRouter>
       <Routes>
@@ -39,4 +16,4 @@ export function QuizApplication() {
   );
 }
 
-ReactDOM.render(<QuizApplication />, document.getElementById("app"));
+ReactDOM.render(<Application />, document.getElementById("app"));
