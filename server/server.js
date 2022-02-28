@@ -1,6 +1,9 @@
 import express from "express";
+import bodyParser from "body-parser";
 
 const app = express();
+app.use(express.static("../client/dist"));
+app.use(bodyParser.json());
 
 app.get("/api/quiz", (req, res) => {
   res.json({
