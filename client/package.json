@@ -28,8 +28,11 @@
     "testEnvironment": "jsdom",
     "collectCoverageFrom": [
       "*.{jsx,js,json}",
-      "!coverag/**",
-      "!dist/**"
+      "!coverage/**",
+      "!dist/**",
+      "index.jsx",
+      "!**/server.js",
+      "!**/questions.js"
     ]
   },
   "babel": {
