@@ -4,3 +4,4 @@
 /coverage/
 .parcel-cache/
 dist/
+/client/coverage/

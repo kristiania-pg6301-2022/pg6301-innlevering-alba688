@@ -27,10 +27,10 @@
   "jest": {
     "testEnvironment": "jsdom",
     "collectCoverageFrom": [
-      "*.{jsx,js,json}",
+      "*.{jsx,js}",
       "!coverage/**",
       "!dist/**",
-      "index.jsx",
+      "!index.jsx",
       "!**/server.js",
       "!**/questions.js"
     ]
