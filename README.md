@@ -34,9 +34,9 @@ Målet med innleveringen er at man skal kjøre en webapplikasjon på skytjeneste
 * [x] tell Heroku how to build
 * [x] serve react from express
 * [x] jest test and snapshot
-* [ ] Heroku builds app
+* [x] Heroku builds app
 * [ ] Setup APIs
   * [ ] GET /api/question - returnerer et tilfeldig spørsmål med { id, category, question, answers }
   * [ ] POST /api/question - tar inn { id, answer } og returnerer "true" eller "false"
-* [ ] Github Actions run Jest and coverage
-* [ ] Coveralls
+* [x] Github Actions run Jest and coverage
+* [x] Coveralls

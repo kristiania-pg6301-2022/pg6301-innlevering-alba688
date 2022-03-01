@@ -1,3 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Quiz Application Shows a question 1`] = `"<div><h1>Question Page</h1></div>"`;
+
+exports[`Quiz Application Shows answer page 1`] = `"<div><h1>Answer Page</h1></div>"`;
+
+exports[`Quiz Application Shows front page 1`] = `"<div><h1>Quiz Application</h1></div>"`;
