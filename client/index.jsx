@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { AnswerPage, FrontPage, QuestionPage } from "./quizApp";
+import { AnswerPage, FrontPage, QuestionPage } from "./quizApp.jsx";
 
 export function Application() {
   return (
