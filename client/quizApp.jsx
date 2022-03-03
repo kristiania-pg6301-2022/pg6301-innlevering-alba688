@@ -1,32 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
+import { FrontPage } from "./components/frontPage";
+import { QuestionPage } from "./components/questionPage";
+import { AnswerPage } from "./components/answerPage";
 
-export function QuestionPage() {
+export function Application() {
   return (
-    <div>
-      <h1>Question Page</h1>
-      <div>
-        <Link to={"/"}>Back</Link>
-      </div>
-    </div>
-  );
-}
-
-export function FrontPage() {
-  return (
-    <div>
-      <h1>Quiz Application</h1>
-      <div>
-        <Link to={"/question"}>Start quiz</Link>
-      </div>
-    </div>
-  );
-}
-
-export function AnswerPage() {
-  return (
-    <div>
-      <h1>Answer Page</h1>
-    </div>
+    <Routes>
+      <Route path={"/"} element={<FrontPage />} />
+      <Route path={"/question"} element={<QuestionPage />} />
+      <Route path={"/question/*"} element={<AnswerPage />} />
+      <Route path={"*"} element={<h1>Not found</h1>} />
+    </Routes>
   );
 }
