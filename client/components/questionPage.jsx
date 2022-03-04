@@ -36,7 +36,7 @@ export function QuestionComponent() {
   const question = data;
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    return <h2>Loading...</h2>;
   }
 
   if (error) {
