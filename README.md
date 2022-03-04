@@ -16,27 +16,13 @@ Målet med innleveringen er at man skal kjøre en webapplikasjon på skytjeneste
 * Heroku
 
 ## Oppsummert:
-* Få en Parcel til å bygge en React applikasjon
-* Få React Router til å navigere rundt i applikasjonen
-* Få React til å hente og lagre informasjon til et API
-* Få Github Actions til å kjøre Jest-testene og publisere coverage til Coveralls
-* Få Heroku til å publisere websidene
-* Express-serveren skal ha følgende API:
-  * GET /api/question - returnerer et tilfeldig spørsmål med { id, category, question, answers }
-  * POST /api/question - tar inn { id, answer } og returnerer "true" eller "false"
-* Dere kan ta utgangspunkt i følgende eksempel på spørsmål, men dere må endre på formatet som returneres til klienten slik at klienten ikke vet hvilket alternativ som er riktig: https://quizapi.io/
+* [x] Få en Parcel til å bygge en React applikasjon
+* [x] Få React Router til å navigere rundt i applikasjonen
+* [x] Få React til å hente og lagre informasjon til et API
+* [x] Få Github Actions til å kjøre Jest-testene og publisere coverage til Coveralls
+* [x] Få Heroku til å publisere websidene
+* [x] Express-serveren skal ha følgende API:
+  * [x] GET /api/question - returnerer et tilfeldig spørsmål med { id, category, question, answers }
+  * [x] POST /api/question - tar inn { id, answer } og returnerer "true" eller "false"
+  * Dere kan ta utgangspunkt i følgende eksempel på spørsmål, men dere må endre på formatet som returneres til klienten slik at klienten ikke vet hvilket alternativ som er riktig: https://quizapi.io/
 
-## To-do:
-* [x] npm init and installs on root, client and server projects
-* [x] setup basic react project
-* [x] setup basic express server
-* [x] add husky pre-commit hook
-* [x] tell Heroku how to build
-* [x] serve react from express
-* [x] jest test and snapshot
-* [x] Heroku builds app
-* [ ] Setup APIs
-  * [ ] GET /api/question - returnerer et tilfeldig spørsmål med { id, category, question, answers }
-  * [ ] POST /api/question - tar inn { id, answer } og returnerer "true" eller "false"
-* [x] Github Actions run Jest and coverage
-* [x] Coveralls
