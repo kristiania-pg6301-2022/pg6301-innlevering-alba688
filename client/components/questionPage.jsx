@@ -1,23 +1,14 @@
-import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { randomQuestion, isCorrectAnswer } from "../../server/questions";
+import React from "react";
+import { Link } from "react-router-dom";
 
-export const QuestionContext = React.createContext({ randomQuestion });
+import { postJSON, fetchJSON } from "../util/http.jsx";
+import { useLoader } from "../util/useLoader";
 
-export function QuestionPage({ setTotalAnswered, setCorrectAnswer }) {
-  const { randomQuestion } = useContext(QuestionContext);
-
-  const [question] = useState(randomQuestion());
-  const navigate = useNavigate();
-
-  function handleAnswer(a) {
-    setTotalAnswered((count) => count + 1);
-    if (isCorrectAnswer(question, a)) {
-      setCorrectAnswer((count) => count + 1);
-      navigate("/answer/correct");
-    } else {
-      navigate("/answer/wrong");
-    }
+function QuestionPage({ question, onReload }) {
+  async function handleAnswer(answer) {
+    const { id } = question;
+    await postJSON("/api/answer", { id, answer });
+    await onReload();
   }
 
   return (
@@ -26,15 +17,25 @@ export function QuestionPage({ setTotalAnswered, setCorrectAnswer }) {
       {Object.keys(question.answers)
         .filter((a) => question.answers[a])
         .map((a) => (
-          <p key={a} data-testid={a}>
+          <p key={a}>
             <button onClick={() => handleAnswer(a)}>
               {question.answers[a]}
             </button>
           </p>
         ))}
-      <Link to="/">
-        <button>Back</button>
-      </Link>
+      <Link to="/">Go back</Link>
     </div>
   );
+}
+
+export function QuestionComponent() {
+  const { reload, data } = useLoader(async () => fetchJSON("/api/question"));
+
+  const question = data;
+
+  if (!question) {
+    return <div>Error no question</div>;
+  }
+
+  return <QuestionPage question={question} onReload={reload} />;
 }

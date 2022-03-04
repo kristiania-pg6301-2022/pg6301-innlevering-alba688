@@ -5,15 +5,19 @@ export function AnswerPage() {
   return (
     <div>
       <Routes>
-        <Route path={"correct"} element={<h1>Correct.</h1>} />
+        <Route path={"correct"} element={<h1>Correct answer.</h1>} />
         <Route path={"wrong"} element={<h1>Wrong answer.</h1>} />
       </Routes>
-      <button>
-        <Link to={"/question"}>New question</Link>
-      </button>
-      <button>
-        <Link to={"/"}>Show score</Link>
-      </button>
+      <div>
+        <Link to={"/question"}>
+          <button>New question</button>
+        </Link>
+      </div>
+      <div>
+        <Link to={"/"}>
+          <button>Show score</button>
+        </Link>
+      </div>
     </div>
   );
 }

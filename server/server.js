@@ -1,25 +1,24 @@
 import express from "express";
 import bodyParser from "body-parser";
 import path from "path";
+import { QuizApp } from "./QuizApp.js";
 
 const app = express();
 app.use(bodyParser.json());
 
-app.get("/api/quiz", (req, res) => {
-  res.json({
-    question: "Hi, how are you?",
-  });
-});
+app.use("/api", QuizApp);
 
-app.post("/api/quiz", (req, res) => {
-  res.sendStatus(200);
-});
-
+// serve files from dist
 app.use(express.static(path.resolve("../client/dist")));
+
+//middleware
 app.use((req, res, next) => {
   if (req.method === "GET" && !req.path.startsWith("/api")) {
     return res.sendFile(path.resolve("../client/dist/index.html"));
-  } else next();
+  } else {
+    res.sendStatus(404);
+    next();
+  }
 });
 
 const server = app.listen(process.env.PORT || 3000, () => {
