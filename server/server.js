@@ -2,9 +2,14 @@ import express from "express";
 import bodyParser from "body-parser";
 import path from "path";
 import { QuizApp } from "./QuizApp.js";
+import cookieParser from "cookie-parser";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
+
 app.use(bodyParser.json());
+app.use(cookieParser(process.env.COOKIE_SECRET));
 
 app.use("/api", QuizApp);
 

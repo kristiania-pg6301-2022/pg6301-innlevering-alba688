@@ -1,14 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import { postJSON, fetchJSON } from "../util/http.jsx";
 import { useLoader } from "../util/useLoader";
+import { Link } from "react-router-dom";
 
 function QuestionPage({ question, onReload }) {
   async function handleAnswer(answer) {
     const { id } = question;
     await postJSON("/api/answer", { id, answer });
-    await onReload();
+    onReload();
   }
 
   return (
@@ -29,12 +29,22 @@ function QuestionPage({ question, onReload }) {
 }
 
 export function QuestionComponent() {
-  const { reload, data } = useLoader(async () => fetchJSON("/api/question"));
+  const { loading, error, reload, data } = useLoader(async () =>
+    fetchJSON("/api/question")
+  );
 
   const question = data;
 
-  if (!question) {
-    return <div>Error no question</div>;
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
+
+  if (error) {
+    return (
+      <div style={{ border: "1px solid red", background: "Pink" }}>
+        An error occurred: {error.toString()}
+      </div>
+    );
   }
 
   return <QuestionPage question={question} onReload={reload} />;

@@ -3,6 +3,17 @@ import { isCorrectAnswer, Questions, randomQuestion } from "./questions.js";
 
 export const QuizApp = express.Router();
 
+QuizApp.get("/score", (req, res) => {
+  const score = req.signedCookies.score
+    ? JSON.parse(req.signedCookies.score)
+    : {
+        answered: 0,
+        correct: 0,
+      };
+
+  res.json(score);
+});
+
 QuizApp.get("/question", (req, res) => {
   const { id, question, answers } = randomQuestion();
   res.json({
@@ -15,15 +26,26 @@ QuizApp.get("/question", (req, res) => {
 QuizApp.post("/answer", (req, res) => {
   const { id, answer } = req.body;
 
-  const question = Questions.find((q) => q.id === id);
+  const score = req.signedCookies.score
+    ? JSON.parse(req.signedCookies.score)
+    : {
+        answered: 0,
+        correct: 0,
+      };
 
+  const question = Questions.find((q) => q.id === id);
   if (!question) {
     return res.status(404);
   }
 
+  score.answered++;
+
   if (isCorrectAnswer(question, answer)) {
-    return res.json({ result: "true" });
+    score.correct++;
+    res.cookie("score", JSON.stringify(score), { signed: true });
+    return res.json({ result: "correct" });
   } else {
-    return res.json({ result: "false" });
+    res.cookie("score", JSON.stringify(score), { signed: true });
+    return res.json({ result: "incorrect" });
   }
 });
