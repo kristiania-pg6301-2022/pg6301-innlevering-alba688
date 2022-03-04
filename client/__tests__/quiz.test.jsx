@@ -14,10 +14,4 @@ describe("Quiz Application", () => {
     ReactDOM.render(<FrontPage />, element);
     expect(element.innerHTML).toMatchSnapshot();
   });
-
-  it("Shows answer page", () => {
-    const element = document.createElement("div");
-    ReactDOM.render(<AnswerPage />, element);
-    expect(element.innerHTML).toMatchSnapshot();
-  });
 });
