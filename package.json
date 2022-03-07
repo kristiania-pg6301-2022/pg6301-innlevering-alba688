@@ -1,0 +1,42 @@
+{
+  "name": "pg6301-innlevering-alba688",
+  "version": "1.0.0",
+  "description": "Innlevering PG6301 Web & Api",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently npm:dev:client npm:dev:server",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "test": "jest",
+    "prepare": "husky install",
+    "pre-commit": "npm run format:check",
+    "format:check": "prettier --check \"**/*.{js,jsx}\"",
+    "format": "prettier --write \"**/*.{js,jsx}\"",
+    "build": "npm run build:server && npm run build:client",
+    "build:client": "cd client && npm run build",
+    "build:server": "cd server && npm run build",
+    "start": "cd server && npm start",
+    "verify": "cd client && npm run build && npm run verify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristiania-pg6301-2022/pg6301-innlevering-alba688.git"
+  },
+  "keywords": [],
+  "author": "Alexandra Baker & Martin Hansen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kristiania-pg6301-2022/pg6301-innlevering-alba688/issues"
+  },
+  "homepage": "https://github.com/kristiania-pg6301-2022/pg6301-innlevering-alba688#readme",
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "husky": "^7.0.4",
+    "jest": "^27.5.1",
+    "prettier": "^2.5.1"
+  },
+  "engines": {
+    "node": "16.9.0",
+    "npm": "7.21.1"
+  }
+}
