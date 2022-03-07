@@ -25,7 +25,7 @@ QuizApp.get("/question", (req, res) => {
 
 QuizApp.post("/answer", (req, res) => {
   const { id, answer } = req.body;
-  console.log(answer);
+  console.log(id, answer);
 
   const score = req.signedCookies.score
     ? JSON.parse(req.signedCookies.score)

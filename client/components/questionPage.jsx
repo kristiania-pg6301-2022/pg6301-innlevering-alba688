@@ -10,7 +10,6 @@ function QuestionPage({ question, onReload }) {
     await postJSON("/api/answer", { id, answer });
     onReload();
   }
-  console.log(id);
 
   return (
     <div>
