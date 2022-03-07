@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function QuestionPage({ question, onReload }) {
   async function handleAnswer(answer) {
     const { id } = question;
-    await postJSON("/api/answer", { id, answer });
+    postJSON("/api/answer", { id, answer });
     onReload();
   }
 
