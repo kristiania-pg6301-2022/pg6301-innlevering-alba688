@@ -7,7 +7,7 @@ export function FrontPage() {
   const { data: score, loading } = useLoader(async () =>
     fetchJSON("/api/score")
   );
-  console.log(score);
+  console.log(score.answered);
 
   return (
     <div>
